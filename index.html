@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bally-Stone | Data Scientist & Analyst</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2962ff;
+      --dark: #0a192f;
+      --light: #ccd6f6;
+      --accent: #64ffda;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: var(--dark);
+      color: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1.5rem 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(10, 25, 47, 0.9);
+      z-index: 100;
+    }
+    
+    .logo {
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-links a {
+      color: var(--light);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+    
+    /* Header/Hero */
+    header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 2rem;
+      background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9)), 
+                  url('https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&auto=format&fit=crop&w=2232&q=80') no-repeat center/cover;
+    }
+    
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .tagline {
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      margin-bottom: 2rem;
+      max-width: 700px;
+      opacity: 0.9;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 2rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .btn:hover {
+      background: rgba(100, 255, 218, 0.1);
+      transform: translateY(-3px);
+    }
+    
+    .btn-filled {
+      background: var(--accent);
+      color: var(--dark);
+      margin-right: 1rem;
+    }
+    
+    .btn-filled:hover {
+      background: transparent;
+      color: var(--accent);
+    }
+    
+    /* Sections */
+    section {
+      padding: 6rem 10%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin-bottom: 3rem;
+      color: var(--light);
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 3px;
+      background: var(--accent);
+      margin-top: 1rem;
+    }
+    
+    /* About Section */
+    #about {
+      background-color: #112240;
+      position: relative;
+    }
+    
+    .about-content {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    
+    .about-text p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+    }
+    
+    .tech-item {
+      background: rgba(100, 255, 218, 0.1);
+      color: var(--accent);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+    
+    /* Skills Section */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .skill-card {
+      background: #112240;
+      padding: 2rem;
+      border-radius: 5px;
+      transition: transform 0.3s ease;
+    }
+    
+    .skill-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .skill-card h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    /* Projects Section */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .project-card {
+      background: #112240;
+      border-radius: 5px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .project-img {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 3rem;
+      position: relative;
+    }
+    
+    .project-img::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(100, 255, 218, 0.1);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .project-card:hover .project-img::before {
+      opacity: 1;
+    }
+    
+    .project-content {
+      padding: 2rem;
+    }
+    
+    .project-content h3 {
+      color: var(--light);
+      margin-bottom: 1rem;
+    }
+    
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    /* Experience Section */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 2px;
+      background-color: var(--accent);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -1px;
+    }
+    
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+    
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+    
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+    
+    .timeline-content {
+      padding: 20px;
+      background: #112240;
+      border-radius: 5px;
+      position: relative;
+    }
+    
+    .timeline-content h3 {
+      color: var(--accent);
+    }
+    
+    .timeline-date {
+      font-weight: bold;
+      color: var(--accent);
+    }
+    
+    /* Contact Section */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .contact-icon {
+      color: var(--accent);
+      font-size: 1.5rem;
+    }
+    
+    .contact-form {
+      background: #112240;
+      padding: 2rem;
+      border-radius: 5px;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      background: #0a192f;
+      border: 1px solid #233554;
+      color: var(--light);
+      border-radius: 5px;
+    }
+    
+    .contact-links {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .contact-links a {
+      color: var(--light);
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+    
+    .contact-links a:hover {
+      color: var(--accent);
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #0a192f;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 5%;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .timeline::before {
+        left: 31px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      
+      .timeline-item:nth-child(even) {
+        left: 0;
+      }
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .fade-in {
+      animation: fadeIn 1s ease forwards;
+    }
+    
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">BS</div>
+    <div class="nav-links">
+      <a href="#about">À propos</a>
+      <a href="#skills">Compétences</a>
+      <a href="#projects">Projets</a>
+      <a href="#experience">Expérience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Header/Hero -->
+  <header>
+    <h1 class="fade-in">Bally-Stone Moudiango</h1>
+    <p class="tagline fade-in delay-1">Data Scientist / Data Analyst</p>
+    <p class="fade-in delay-1">Alternance d'apprentissage: 3 semaines entreprise / 1 semaine école</p>
+    <div class="fade-in delay-2">
+      <a href="#projects" class="btn btn-filled">Voir mes projets</a>
+      <a href="#contact" class="btn">Me contacter</a>
+      <a href="documents/CV_Bally_Stone.pdf" class="btn btn-filled" download>
+        <i class="fas fa-download" style="margin-right: 8px;"></i> Télécharger mon CV
+      </a>    
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2 class="section-title fade-in">À propos</h2>
+    <div class="about-content fade-in delay-1">
+      <div class="about-text">
+        <p>
+          L'IA et la data sont bien plus que des buzzwords pour moi : ce sont des leviers
+ pour transformer les idées en réalité. Actuellement étudiant en 4ème année en
+ IA & Data à Aivancity, je recherche une alternance en tant que Data Scientist /
+ Data Analyst. 
+        </p>
+        <p>
+          Mon ambition ? Apporter des solutions concrètes grâce à mes
+          compétences en Machine Learning, NLP , Computer Vision, Data Visualisation
+          et Automatisation
+        </p>
+        <div class="tech-list">
+          <span class="tech-item"> Probabilités,
+            algèbre linéaire, analyse de données. </span>
+          <span class="tech-item"> Modèles
+            supervisés, non supervisés, CNN, RNN,
+            transformers. </span>
+          <span class="tech-item">Python (Pandas, NumPy, Scikit
+            learn, TensorFlow, PyTorch), SQL.</span>
+          <span class="tech-item"> Bases de
+            données SQL/NoSQL, pipelines ETL, Big Data
+            (Spark, Hadoop).</span>
+          <span class="tech-item"> Analyse de
+            texte, embeddings, LLMs, LangChain. </span>
+          <span class="tech-item">CNN, OpenCV, traitement
+            d’images.</span>
+          <span class="tech-item"> Matplotlib, Seaborn, Plotly,
+            Power BI, Tableau. </span>
+          <span class="tech-item">AWS, Azure, GCP,
+            Docker, API Flask/FastAPI, CI/CD, Kubernetes,
+            MLflow</span>
+        </div>
+      </div>
+      <div class="about-image">
+        <img src="images/BSP.jpg" alt="Photo de Bally-Stone" style="width: 100%; height: 330px; object-fit: cover; border-radius: 5px;">
+      </div> 
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2 class="section-title fade-in">Compétences</h2>
+    <div class="skills-container">
+      <div class="skill-card fade-in delay-1">
+        <h3><i class="fas fa-brain"></i> Machine Learning</h3>
+        <ul>
+          <li>Modèles supervisés/non supervisés</li>
+          <li>CNN, RNN, Transformers</li>
+          <li>Scikit-learn, TensorFlow, PyTorch</li>
+          <li>Optimisation hyperparamètres</li>
+        </ul>
+      </div>
+      
+      <div class="skill-card fade-in delay-2">
+        <h3><i class="fas fa-language"></i> NLP</h3>
+        <ul>
+          <li>LLMs (GPT, BERT, Mistral)</li>
+          <li>Embeddings, RAG architecture</li>
+          <li>LangChain, spaCy, NLTK</li>
+          <li>Analyse sentimentale</li>
+        </ul>
+      </div>
+      
+      <div class="skill-card fade-in delay-1">
+        <h3><i class="fas fa-eye"></i> Computer Vision</h3>
+        <ul>
+          <li>Classification d'images</li>
+          <li>OpenCV, CNN architectures</li>
+          <li>Détection d'objets/émotions</li>
+          <li>Transfer learning</li>
+        </ul>
+      </div>
+      
+      <div class="skill-card fade-in delay-2">
+        <h3><i class="fas fa-database"></i> Data Engineering</h3>
+        <ul>
+          <li>ETL/ELT pipelines</li>
+          <li>SQL/NoSQL databases</li>
+          <li>Spark, Hadoop ecosystem</li>
+          <li>API Flask/FastAPI</li>
+        </ul>
+      </div>
+      
+      <div class="skill-card fade-in delay-1">
+        <h3><i class="fas fa-chart-line"></i> Data Visualisation</h3>
+        <ul>
+          <li>Matplotlib, Seaborn, Plotly</li>
+          <li>Power BI, Tableau</li>
+          <li>Dashboards interactifs</li>
+          <li>Storytelling data</li>
+        </ul>
+      </div>
+      
+      <div class="skill-card fade-in delay-2">
+        <h3><i class="fas fa-cloud"></i> MLOps & Cloud</h3>
+        <ul>
+          <li>AWS/GCP/Azure</li>
+          <li>Docker, Kubernetes</li>
+          <li>CI/CD pipelines</li>
+          <li>MLflow, DVC</li>
+        </ul>
+      </div>
+      <div class="skill-card fade-in delay-3">
+        <h3><i class="fas fa-code"></i> Programmation</h3>
+        <ul>
+          <li>Python (Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch)</li>
+          <li>SQL (requêtes, jointures, agrégations)</li>
+          <li>R (data manipulation & visualisation)</li>
+        </ul>
+      </div>
+    </div> 
+</section>
+  <!-- Projects Personnel Section -->
+<section id="projects">
+  <h2 class="section-title fade-in">Projets Personnel</h2>
+  
+  <div class="project-grid">
+
+    <!-- Projet 1 : Recommandation de culture -->
+    <div class="project-card fade-in delay-1">
+      <div class="project-img" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1597347343040-5e3e4d5b2f1f') center/cover;">
+        <i class="fas fa-seedling"></i>
+      </div>
+      <div class="project-content">
+        <h3>Recommandation de culture</h3>
+        <p>Application Streamlit pour recommander des cultures agricoles selon les critères géographiques et climatiques de l'utilisateur, avec intégration cartographique.</p>
+        <p><strong>Technologies :</strong> Streamlit, Python, Pandas, Geopandas, Folium</p>
+        <div class="tech-list">
+          <span class="tech-item">Streamlit</span>
+          <span class="tech-item">Python</span>
+          <span class="tech-item">Pandas</span>
+          <span class="tech-item">Geopandas</span>
+          <span class="tech-item">Folium</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Papin777/Recommandation-de-culture" class="btn">Voir le projet</a>
+          <a href="https://github.com/Papin777/Recommandation-de-culture" class="btn btn-filled">Code source</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card fade-in delay-2">
+      <div class="project-img" style="
+        background: url('images/cifar_demo.gif') no-repeat center center;
+        background-size: contain;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;">
+        
+      </div>
+      <div class="project-content">
+        <h3>Classification d’images CIFAR-10</h3>
+        <p>Application Streamlit permettant de prédire à quelle catégorie appartient une image (chat, avion, voiture...) à l’aide d’un modèle CNN entraîné sur CIFAR-10.</p>
+        <p><strong>Technologies :</strong> Python, Streamlit, TensorFlow/Keras, CNN, PIL</p>
+        <div class="tech-list">
+          <span class="tech-item">TensorFlow</span>
+          <span class="tech-item">Keras</span>
+          <span class="tech-item">CNN</span>
+          <span class="tech-item">Streamlit</span>
+          <span class="tech-item">CIFAR-10</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Papin777/Classification-CIFAR10" class="btn">Voir le projet</a>
+          <a href="https://github.com/Papin777/Classification-CIFAR10" class="btn btn-filled">Code source</a>
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- Projet 2 : Classification hymnes -->
+    <div class="project-card fade-in delay-2">
+      <div class="project-img" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1581090700227-1e8c9ab5c1a6') center/cover;">
+        <i class="fas fa-globe"></i>
+      </div>
+      <div class="project-content">
+        <h3>Classification des Hymnes Nationaux</h3>
+        <p>Utilisation du NLP et d’un classifieur SVM pour prédire le continent d’un pays à partir du texte de son hymne national. Prétraitement, TF-IDF, NLP complet.</p>
+        <p><strong>Technologies :</strong> Python, NLTK, Scikit-learn, TF-IDF, SVM, Matplotlib, Seaborn</p>
+        <div class="tech-list">
+          <span class="tech-item">NLP</span>
+          <span class="tech-item">SVM</span>
+          <span class="tech-item">TF-IDF</span>
+          <span class="tech-item">Scikit-learn</span>
+          <span class="tech-item">NLTK</span>
+          <span class="tech-item">Seaborn</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projet 3 : Détection de fraude -->
+    <div class="project-card fade-in delay-3">
+      <div class="project-img" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1621592480207-91b2eaf1f30a') center/cover;">
+        <i class="fas fa-university"></i>
+      </div>
+      <div class="project-content">
+        <h3>Détection de Fraude Bancaire</h3>
+        <p>Construction d’un modèle de classification (Random Forest & XGBoost) pour détecter les transactions frauduleuses à partir d’un jeu de données déséquilibré.</p>
+        <p><strong>Technologies :</strong> Python, Pandas, Scikit-learn, XGBoost, Random Forest, Matplotlib</p>
+        <div class="tech-list">
+          <span class="tech-item">Machine Learning</span>
+          <span class="tech-item">Random Forest</span>
+          <span class="tech-item">XGBoost</span>
+          <span class="tech-item">Python</span>
+          <span class="tech-item">Imbalanced data</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projet 4 : Prédiction immobilier -->
+    <div class="project-card fade-in delay-1">
+      <div class="project-img" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1570129477492-45c003edd2be') center/cover;">
+        <i class="fas fa-home"></i>
+      </div>
+      <div class="project-content">
+        <h3>Prédiction des prix de l'immobilier</h3>
+        <p>Analyse et modélisation des prix de vente de biens immobiliers avec régression linéaire, random forest, et visualisation interactive.</p>
+        <p><strong>Technologies :</strong> Python, Scikit-learn, Pandas, Regression, Matplotlib, Plotly</p>
+        <div class="tech-list">
+          <span class="tech-item">ML</span>
+          <span class="tech-item">Regression</span>
+          <span class="tech-item">Python</span>
+          <span class="tech-item">Plotly</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projet 5 : Analyse de sentiments -->
+    <div class="project-card fade-in delay-2">
+      <div class="project-img" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1573497019214-7c21235e8c74') center/cover;">
+        <i class="fas fa-film"></i>
+      </div>
+      <div class="project-content">
+        <h3>Analyse de sentiments sur critiques de films</h3>
+        <p>Traitement de données textuelles avec LSTM pour classifier les avis comme positifs ou négatifs. Projet deep learning sur dataset IMDb.</p>
+        <p><strong>Technologies :</strong> Python, NLP, Keras, LSTM, Deep Learning, IMDb dataset</p>
+        <div class="tech-list">
+          <span class="tech-item">Deep Learning</span>
+          <span class="tech-item">NLP</span>
+          <span class="tech-item">LSTM</span>
+          <span class="tech-item">Keras</span>
+          <span class="tech-item">IMDb</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card fade-in delay-1">
+      <div class="project-img" style="
+  background: url('images/demo.gif') no-repeat center center;
+  background-size: contain;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+">
+  
+</div>
+
+      <div class="project-content">
+        <h3>MyEasyFarm – Prédiction de rendement agricole</h3>
+        <p>Application Streamlit permettant d’estimer le rendement d’une culture en fonction de données : surface, irrigation, sol, engrais, eau, etc.</p>
+        <p><strong>Technologies :</strong> Python, Streamlit, Scikit-learn, Pandas, Random Forest</p>
+        <div class="tech-list">
+          <span class="tech-item">Python</span>
+          <span class="tech-item">Streamlit</span>
+          <span class="tech-item">Scikit-learn</span>
+          <span class="tech-item">Random Forest</span>
+          <span class="tech-item">Pandas</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Papin777/MyEasyFarm" class="btn">Voir le projet</a>
+          <a href="https://github.com/Papin777/MyEasyFarm" class="btn btn-filled">Code source</a>
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+</section>
+
+
+    <!-- Experience Section -->
+<section id="experience">
+  <h2 class="section-title fade-in">Expérience</h2>
+  
+  <div class="timeline">
+    <div class="timeline-item fade-in delay-1">
+      <div class="timeline-content">
+        <h3>Data Scientist chez MEDx.Care</h3>
+
+        
+        <p>J’ai optimisé les recommandations de soins pour les personnes âgées à partir de données médicales et comportementales. J’ai conçu un modèle de recommandation en Python avec des algorithmes de Machine Learning et visualisé les résultats sur Power BI. Résultats : +20 % de précision et –30 % de temps de traitement des dossiers.</p>
+        
+        
+        <p><strong>Technologies :</strong> Python, Pandas, Scikit-learn, ML supervisé, Power BI, Analyse de données, Statistique</p>
+      </div>
+    </div>
+    
+    <div class="timeline-item fade-in delay-2">
+      <div class="timeline-content">
+        <h3>Chatbot RAG – Développeur Chatbot IA</h3>
+
+        
+        <p>J’ai développé un assistant IA pour le personnel des lycées en Île-de-France, en m’appuyant sur la technologie RAG. J’ai intégré LangChain et l’API DeepSeek pour renforcer l’analyse sémantique et améliorer la pertinence des réponses. Résultat : interactions plus fluides et meilleure compréhension des requêtes.</p>
+        
+        
+        <p><strong>Technologies :</strong> LangChain, LLM, NLP, Analyse sémantique, Python, API, Embeddings, Streamlit</p>
+      </div>
+    </div>
+    
+    <div class="timeline-item fade-in delay-1">
+      <div class="timeline-content">
+        <h3>Détection d’émotions – Machine Learning Engineer</h3>
+        
+       
+        <p>J’ai conçu un modèle CNN capable de détecter les émotions à partir d’un million d’images. J’ai assuré le prétraitement, l’extraction de caractéristiques, l’entraînement du modèle et la visualisation des résultats avec Matplotlib et Seaborn. Précision obtenue : 90 %, supérieure aux solutions existantes.</p>
+        
+        
+        <p><strong>Technologies :</strong> Computer Vision, CNN, Traitement d’images, Python, TensorFlow/PyTorch, Matplotlib, Seaborn, Analyse de données</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Contact Section -->
+<section id="contact">
+  <h2 class="section-title fade-in">Contact</h2>
+
+  <div class="contact-container fade-in delay-1">
+    <div class="contact-info">
+      <p>Disponible pour un contrat en apprentissage en tant que Data Scientist / Data Analyst à partir de septembre 2025 (ou plus tôt).</p>
+
+      <div class="contact-item">
+        <i class="fas fa-envelope contact-icon"></i>
+        <a href="mailto:moudiangopapin@gmail.com">moudiangopapin@gmail.com</a>
+      </div>
+
+      <div class="contact-item">
+        <i class="fas fa-phone contact-icon"></i>
+        <a href="tel:+0758373190">07 58 37 31 90</a>
+      </div>
+
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt contact-icon"></i>
+        <span>Île-de-France / France entière</span>
+      </div>
+
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/bally-stone-papin" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Papin777" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" title="Medium"><i class="fab fa-medium"></i></a>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <form action="https://formsubmit.co/moudiangopapin@gmail.com" method="POST">
+        <!-- Options cachées Formsubmit -->
+        <input type="hidden" name="_next" value="https://tonsite.com/merci.html"> <!-- à personnaliser si tu as une page de remerciement -->
+        <input type="hidden" name="_captcha" value="false">
+
+        <div class="form-group">
+          <label for="name">Nom</label>
+          <input type="text" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Sujet</label>
+          <input type="text" name="subject" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea name="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-filled">Envoyer</button>
+      </form>
+    </div>
+  </div>
+</section>
