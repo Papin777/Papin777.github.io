@@ -62,3 +62,82 @@ Je développe des projets en IA avec une forte orientation **appliquée**, en m'
 ---
 
 > Merci de votre visite, n'hésitez pas à explorer mes projets ou me contacter pour une collaboration ou une opportunité d'alternance 🙌
+
+
+<h1 align="center">👋 Hi there, I'm Bally-Stone Moudiango</h1>
+
+<p align="center">
+  <a href="https://Papin777.github.io" target="_blank">
+    <img src="https://img.shields.io/badge/🌐 Portfolio-Papin777.github.io-blue?style=for-the-badge" />
+  </a>
+  <a href="https://www.linkedin.com/in/bally-stone-papin" target="_blank">
+    <img src="https://img.shields.io/badge/🔗 LinkedIn-Bally--Stone--Papin-blue?style=for-the-badge&logo=linkedin" />
+  </a>
+  <a href="mailto:moudiangopapin@gmail.com">
+    <img src="https://img.shields.io/badge/📬 Email-Contact%20Me-informational?style=for-the-badge" />
+  </a>
+</p>
+
+---
+
+## 👨‍🎓 About Me
+
+I’m currently a 4th-year student at **Aivancity School for Technology, Business & Society**, specializing in **Artificial Intelligence and Data Science**.
+
+💼 I’m looking for an **apprenticeship opportunity (Data Scientist / Data Analyst)** starting **September 2025** (or earlier).
+
+My academic journey and personal projects focus on building data-driven solutions through:
+
+- Predictive modeling (ML, DL)
+- Natural Language Processing (NLP)
+- Computer Vision
+- Data Engineering & MLOps
+- Dashboarding & Communication
+
+---
+
+## 🔧 Tech Stack
+
+### 📊 Data & AI
+`Supervised & Unsupervised Learning`, `CNN`, `RNN`, `Transformers`, `XGBoost`, `TF-IDF`, `NLP`, `RAG`, `LSTM`
+
+### 🛠️ Tools & Languages
+`Python`, `SQL`, `Scikit-learn`, `Pandas`, `NumPy`, `TensorFlow`, `PyTorch`, `Seaborn`, `Plotly`, `Power BI`, `Tableau`
+
+### ☁️ DevOps & Cloud
+`Docker`, `Kubernetes`, `Git`, `CI/CD`, `MLflow`, `Flask`, `FastAPI`, `LangChain`, `AWS`, `Azure`, `GCP`
+
+---
+
+## 🚀 Featured Projects
+
+| Project | Description | Tools |
+|---------|-------------|-------|
+| 🌾 **Crop Recommender** | Streamlit app suggesting optimal crops based on user’s location and climate | Streamlit, GeoPandas, Folium |
+| 🖼️ **CIFAR-10 Image Classifier** | CNN model trained to predict object classes from image input | Keras, CNN, Streamlit |
+| 🛡️ **Fraud Detection** | Model detecting fraudulent banking transactions | XGBoost, Scikit-learn, Pandas |
+| 🤖 **AI Chatbot (RAG)** | Smart assistant using LangChain + embeddings for semantic search | LangChain, LLMs, Streamlit |
+| 🎬 **Sentiment Analysis** | LSTM model for IMDb movie reviews classification | Deep Learning, NLP, Keras |
+
+👉 Full portfolio: [Papin777.github.io](https://Papin777.github.io)
+
+---
+
+## 📈 GitHub Stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Papin777&show_icons=true&theme=radical" />
+</p>
+
+---
+
+## 📬 Let's Connect
+
+- 📧 **Email:** moudiangopapin@gmail.com  
+- 💼 **Portfolio:** [https://Papin777.github.io](https://Papin777.github.io)  
+- 🔗 **LinkedIn:** [linkedin.com/in/bally-stone-papin](https://www.linkedin.com/in/bally-stone-papin)
+
+---
+
+> Thank you for visiting my profile! Feel free to explore my work or reach out for any collaboration opportunities 🚀
+
