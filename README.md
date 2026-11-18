@@ -16,12 +16,14 @@
 
 ## 👨‍🎓 Qui suis-je ?
 
-Je suis **étudiant en 4ème année à Aivancity** dans le programme Intelligence Artificielle & Data Science, à la recherche d'une **alternance à partir de septembre 2025** en tant que **Data Scientist** ou **Data Analyst**.
+Je suis **étudiant en dernière année du Programme Grande École IA et Data d'aivancity** (Bac+5) et **Data Analyst en alternance chez BNP Paribas**. Je recherche un **CDI de Data Scientist à partir d'octobre 2027**.
 
 Je développe des projets en IA avec une forte orientation **appliquée**, en m'appuyant sur des compétences en :
 
 - Machine Learning (supervisé, non-supervisé, deep learning)
+- IA générative : RAG, LangChain, LangGraph, agents LLM, MCP
 - NLP, Computer Vision, Big Data, MLOps
+- Dataiku DSS, Teradata, Trino (SQL)
 - Streamlit, Python, SQL, Spark, Scikit-learn, TensorFlow/PyTorch
 
 ---
@@ -43,6 +45,8 @@ Je développe des projets en IA avec une forte orientation **appliquée**, en m'
 
 | Projet | Description | Techno |
 |--------|-------------|--------|
+| **MachineEar** | Détection d'anomalies sonores (MIMII, log-mel, k-NN) + agent LangGraph / MCP | Python, scikit-learn, LangGraph |
+| **Healthcare Compliance RAG** | RAG BM25 sur la réglementation santé de 12 juridictions, évalué au Recall@6 | RAG, BM25, LLM |
 | **Recommandation de culture** | Appli Streamlit qui recommande des cultures selon les critères géo-climatiques | Streamlit, Python, GeoPandas, Folium |
 | **CIFAR-10 Classification** | Prédiction d’images via CNN entraîné sur CIFAR-10 | TensorFlow, CNN, Streamlit |
 | **Détection de fraude bancaire** | Modèle supervisé (XGBoost/Random Forest) pour classifier des transactions | XGBoost, Sklearn, Pandas |
@@ -61,7 +65,7 @@ Je développe des projets en IA avec une forte orientation **appliquée**, en m'
 
 ---
 
-> Merci de votre visite, n'hésitez pas à explorer mes projets ou me contacter pour une collaboration ou une opportunité d'alternance 🙌
+> Merci de votre visite, n'hésitez pas à explorer mes projets ou à me contacter pour une opportunité de CDI à partir d'octobre 2027 🙌
 
 
 <h1 align="center">👋 Hi there, I'm Bally-Stone Moudiango</h1>
@@ -82,13 +86,14 @@ Je développe des projets en IA avec une forte orientation **appliquée**, en m'
 
 ## 👨‍🎓 About Me
 
-I’m currently a 4th-year student at **Aivancity School for Technology, Business & Society**, specializing in **Artificial Intelligence and Data Science**.
+I’m a final-year student in the AI & Data Master's-level program at **aivancity**, and a **Data Analyst apprentice at BNP Paribas**.
 
-💼 I’m looking for an **apprenticeship opportunity (Data Scientist / Data Analyst)** starting **September 2025** (or earlier).
+💼 I’m looking for a **full-time permanent position (CDI) as a Data Scientist** starting **October 2027**.
 
 My academic journey and personal projects focus on building data-driven solutions through:
 
 - Predictive modeling (ML, DL)
+- Generative AI: RAG, LangChain, LangGraph, LLM agents
 - Natural Language Processing (NLP)
 - Computer Vision
 - Data Engineering & MLOps
@@ -113,6 +118,8 @@ My academic journey and personal projects focus on building data-driven solution
 
 | Project | Description | Tools |
 |---------|-------------|-------|
+| 🔊 **MachineEar** | Acoustic anomaly detection on the MIMII dataset, plus a LangGraph / MCP agent | Python, k-NN, LangGraph |
+| ⚖️ **Healthcare Compliance RAG** | BM25 retrieval over health regulations from 12 jurisdictions, evaluated with Recall@6 | RAG, BM25, LLM |
 | 🌾 **Crop Recommender** | Streamlit app suggesting optimal crops based on user’s location and climate | Streamlit, GeoPandas, Folium |
 | 🖼️ **CIFAR-10 Image Classifier** | CNN model trained to predict object classes from image input | Keras, CNN, Streamlit |
 | 🛡️ **Fraud Detection** | Model detecting fraudulent banking transactions | XGBoost, Scikit-learn, Pandas |
